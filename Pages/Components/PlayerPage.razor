@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="col-12">
-        <strong>OBJECTIVE: Build a cool player page any way you see fit</strong>
+        <strong>OBJECTIVE: Build a cool player page any way you see fit TESTTT</strong>
     </div>
 </div>
 
@@ -58,6 +58,7 @@
     protected override void OnInitialized()
     {
         allPlayers = dataService.GetPlayers();
+        Console.WriteLine(allPlayers);
         base.OnInitialized();
     }
 }
