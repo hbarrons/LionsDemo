@@ -16,10 +16,6 @@ namespace LionsDemo.Data
         public IEnumerable<Player> GetPlayers()
         {
             var players = Fakes.PlayerCollection;
-            Console.WriteLine("test");
-            Console.Write("all: ", players);
-            Console.Write("not deleted: ", players.Where(p => p.Deleted == false));
-            
             return players.Where(p => p.Deleted == false);
         }
 
@@ -29,12 +25,6 @@ namespace LionsDemo.Data
         {
             //Console.WriteLine(playerName);
             var players = Fakes.PlayerCollection;
-            ////declaring a size here, but need to validate max # of players with same name?
-            //string[] searchedPlayers = new string[10];
-            //for (int i=0; i<players.Length; i++)
-            //{
-
-            //}
             return players.FirstOrDefault(p => p.LastName == playerName);
         }
 
