@@ -16,6 +16,8 @@ namespace LionsDemo.Data
         public IEnumerable<Player> GetPlayers()
         {
             var players = Fakes.PlayerCollection;
+            Console.WriteLine("TEST");
+            Console.WriteLine(players);
             return players.Where(p => p.Deleted == false);
         }
 
@@ -31,6 +33,7 @@ namespace LionsDemo.Data
         // OBJECTIVE: I should return a list of teams from the fake data repository, sorted alphabetically by name.  Right now I return an empty list.
         public IEnumerable<Team> GetTeams()
         {
+            //var teams = Team.TeamCollection;
             return new List<Team>();
         }
     }

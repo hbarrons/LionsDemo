@@ -15,4 +15,15 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Shared\Images\jg %28copy%29.png" />
+    <None Remove="Properties\Resources.resx\" />
+    <None Remove="Properties\Resources.resx\jg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\Resources.resx\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx\jg.png" />
+  </ItemGroup>
 </Project>
