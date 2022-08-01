@@ -28,6 +28,11 @@ main {
     align-items: center;
 }
 
+/*.player-photo {
+    height: 200px!important;
+}*/
+
+
     .top-row ::deep a, .top-row .btn-link {
         white-space: nowrap;
         margin-left: 1.5rem;

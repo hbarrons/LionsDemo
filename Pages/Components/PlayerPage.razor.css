@@ -1,0 +1,17 @@
+﻿.player-photo {
+    height: 150px;
+    width: 150px;
+}
+
+.player-info {
+    margin: auto;
+    margin-top: 20px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-body {
+    width: 100vh;
+}
