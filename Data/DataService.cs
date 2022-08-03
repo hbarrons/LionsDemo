@@ -5,6 +5,7 @@ namespace LionsDemo.Data
     public interface IDataService
     {
         public IEnumerable<Player> GetPlayers();
+        public Player GetPlayer(int playerId);
         public IEnumerable<Player> GetPlayerByName(string playerName);
         public IEnumerable<Team> GetTeams();
     }
@@ -47,6 +48,14 @@ namespace LionsDemo.Data
                 System.Console.WriteLine(team.Name);
             }
             return teams.OrderBy(team => team.Name);
+        }
+
+        public Player GetPlayer(int playerId)
+        {
+            var players = Fakes.PlayerCollection;
+            var selectedPlayer = players.FirstOrDefault(p => p.PlayerId == playerId);
+            System.Console.WriteLine(playerId);
+            return selectedPlayer;
         }
     }
 }

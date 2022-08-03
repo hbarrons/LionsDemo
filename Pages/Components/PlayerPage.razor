@@ -26,6 +26,7 @@
                     }
                 </DropdownMenu>
             </Dropdown>
+            <button @onclick="getPlayer" class="btn btn-primary">Get Player Data</button>
         </div>
     </div>
     @*<div class="col-12">
@@ -38,9 +39,9 @@
         <Card Margin="Margin.Is4.OnY">
             <img Class="player-photo center" src="https://i.imgur.com/LBQBqvP.png" alt="Player Headshot">
             <CardBody>
-                <CardTitle Size="5" Class="text-center">Jared Goff</CardTitle>
+                <CardTitle Size="5" Class="text-center">@($"{currentPlayer.FirstName}") @($"{currentPlayer.LastName}")</CardTitle>
                 <CardText Class="text-center">
-                    QB #16
+                    @($"{currentPlayer.Position}") #16
                 </CardText>
             </CardBody>
         </Card>
@@ -50,42 +51,42 @@
             <CardBody>
                 <CardTitle Size="5" Class="text-center">Player Information</CardTitle>
                 <CardText>
-                    Team:
+                    Team: @($"{currentTeam.Name}")
+                </CardText>
+                <CardText>
+                    Stadium: @($"{currentTeam.Stadium}") - @($"{currentTeam.City}")
                 </CardText>
                 <CardText>
                     Notes:
-                </CardText>
-                <CardText>
-                    Injury History:
                 </CardText>
             </CardBody>
         </Card>
     </div>
     <div class="table-responsive">
         <h3 class="center">Player Statistics</h3>
-        <table class="table table-striped caption-top">
+        <Table class="table table-striped caption-top">
             <caption>2021 Stats</caption>
-            <tr class="table-light">
-                <th>Position</th>
-                <th>Pass Yds</th>
-                <th>Att</th>
-                <th>Cmp</th>
-                <th>Cmp %</th>
-                <th>TD</th>
-                <th>INT</th>
-                <th>QBR</th>
-            </tr>
-            <tr>
-                <td>QB</td>
-                <td>3245</td>
-                <td>494</td>
-                <td>332</td>
-                <td>67.2</td>
-                <td>19</td>
-                <td>8</td>
-                <td>91.5</td>
-            </tr>
-        </table>
+            <TableRow class="table-light">
+                <TableHeaderCell>Position</TableHeaderCell>
+                <TableHeaderCell>Pass Yds</TableHeaderCell>
+                <TableHeaderCell>Att</TableHeaderCell>
+                <TableHeaderCell>Cmp</TableHeaderCell>
+                <TableHeaderCell>Cmp %</TableHeaderCell>
+                <TableHeaderCell>TD</TableHeaderCell>
+                <TableHeaderCell>INT</TableHeaderCell>
+                <TableHeaderCell>QBR</TableHeaderCell>
+            </TableRow>
+            <TableRow>
+                <TableRowCell>@($"{currentPlayer.Position}")</TableRowCell>
+                <TableRowCell>3245</TableRowCell>
+                <TableRowCell>494</TableRowCell>
+                <TableRowCell>332</TableRowCell>
+                <TableRowCell>67.2</TableRowCell>
+                <TableRowCell>19</TableRowCell>
+                <TableRowCell>8</TableRowCell>
+                <TableRowCell>91.5</TableRowCell>
+            </TableRow>
+        </Table>
     </div>
     <div class="col get-data center" style="background-color: #F8F9FA; width: 50vh;">
         <button @onclick="getPlayerByName" class="btn btn-primary">Get Player By Name</button>
@@ -110,8 +111,10 @@
 @code {
     IEnumerable<Player> allPlayers = new List<Player>();
     Player selectedPlayer = new();
+    Player currentPlayer = new();
     IEnumerable<Player> searchedPlayers = new List<Player>();
     IEnumerable<Team> allTeams = new List<Team>();
+    Team currentTeam = new(0, null, null, null, null);
 
 
     protected override void OnInitialized()
@@ -130,6 +133,18 @@
         allTeams = dataService.GetTeams();
     }
 
-
-
+    private void getPlayer()
+    {
+        currentPlayer = dataService.GetPlayer(selectedPlayer.PlayerId);
+        foreach (Team team in allTeams)
+        {
+            if (currentPlayer.TeamId == team.TeamId)
+            {
+                currentTeam = team;
+                System.Console.WriteLine(currentTeam.Name);
+                System.Console.WriteLine(team.Name);
+            }
+        }
+        System.Console.WriteLine(currentTeam.Name);
+    }
 }
