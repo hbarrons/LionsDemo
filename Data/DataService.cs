@@ -33,7 +33,7 @@ namespace LionsDemo.Data
             var searchedPlayers = players.Where(p => p.LastName.Equals(playerName, StringComparison.CurrentCultureIgnoreCase) || p.FirstName.Equals(playerName, StringComparison.CurrentCultureIgnoreCase));
             foreach (Player player in searchedPlayers)
             {
-                System.Console.WriteLine(player.FirstName + player.LastName);
+                System.Console.WriteLine(player.FirstName + " " + player.LastName);
             }
             return searchedPlayers;
         }

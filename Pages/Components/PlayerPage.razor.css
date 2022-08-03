@@ -1,6 +1,6 @@
 ﻿.player-photo {
-    height: 150px;
-    width: 150px;
+    height: 225px;
+    width: 225px;
 }
 
 .player-info {
@@ -18,4 +18,27 @@
 
 .card-body {
     width: 100vh;
+}
+
+.get-data {
+    text-align: center;
+    margin: 10px;
+    border: 1px solid lightgray;
+}
+
+button {
+    margin: 5px;
+    position: center;
+}
+
+ul {
+    margin: auto;
+    display: inline;
+    width: 200px;
+    text-align: center;
+}
+
+li {
+    margin: auto;
+    width: 200px;
 }

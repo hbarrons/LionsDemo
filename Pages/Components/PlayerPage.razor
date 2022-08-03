@@ -34,7 +34,7 @@
 </div>
 
 <div class="row g-2">
-    <div class="player-info col-sm-12 col-xxl-6" style="background-color: white; height: 250px;">
+    <div class="player-info col-sm-12 col-xxl-6" style="background-color: white; height: 350px;">
         <Card Margin="Margin.Is4.OnY">
             <img Class="player-photo center" src="https://i.imgur.com/LBQBqvP.png" alt="Player Headshot">
             <CardBody>
@@ -45,7 +45,7 @@
             </CardBody>
         </Card>
     </div>
-    <div class="col-sm-12 col-xxl-6" style="background-color: white; height: 250px;">
+    <div class="col-sm-12 col-xxl-6" style="background-color: white; height: 350px;">
         <Card Margin="Margin.Is4.OnY">
             <CardBody>
                 <CardTitle Size="5" Class="text-center">Player Information</CardTitle>
@@ -87,8 +87,24 @@
             </tr>
         </table>
     </div>
-    <button @onclick="getPlayerByName" class="btn btn-primary">Get Player By Name</button>
-    <button @onclick="getTeams" class="btn btn-primary">Get Teams</button>
+    <div class="col get-data center" style="background-color: #F8F9FA; width: 50vh;">
+        <button @onclick="getPlayerByName" class="btn btn-primary">Get Player By Name</button>
+        @foreach (var p in searchedPlayers)
+            {
+                <ul>
+                    <li>@($"{p.LastName}, {p.FirstName}")</li>
+                </ul>
+            }
+    </div>
+    <div class="col get-data center" style="background-color: #F8F9FA; width: 50vh;">
+        <button @onclick="getTeams" class="btn btn-primary">Get Teams</button>
+        @foreach (var t in allTeams)
+            {
+                <ul>
+                    <li>@($"{t.Name}")</li>
+                </ul>
+            }
+    </div>
 </div>
 
 @code {
