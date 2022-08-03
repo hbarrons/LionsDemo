@@ -21,12 +21,12 @@
                         {
                             // update so that selected player returns GetPlayerByName
                             //Clicked="() => GetPlayerByName(@($"{selectedPlayer.FirstName} {selectedPlayer.LastName}"))
-                        <DropdownItem Clicked="() => { selectedPlayer = p; }">@($"{p.LastName}, {p.FirstName}")</DropdownItem>
+                        <DropdownItem Clicked="() => { selectedPlayer = p; getPlayer(); }">@($"{p.LastName}, {p.FirstName}")</DropdownItem>
                         <DropdownDivider />
                     }
                 </DropdownMenu>
             </Dropdown>
-            <button @onclick="getPlayer" class="btn btn-primary">Get Player Data</button>
+            @*<button @onclick="getPlayer" class="btn btn-primary">Get Player Data</button>*@
         </div>
     </div>
     @*<div class="col-12">
@@ -41,7 +41,7 @@
             <CardBody>
                 <CardTitle Size="5" Class="text-center">@($"{currentPlayer.FirstName}") @($"{currentPlayer.LastName}")</CardTitle>
                 <CardText Class="text-center">
-                    @($"{currentPlayer.Position}") #16
+                    @($"{currentPlayer.Position}") #@($"{currentPlayer.PlayerId}")
                 </CardText>
             </CardBody>
         </Card>
@@ -141,10 +141,7 @@
             if (currentPlayer.TeamId == team.TeamId)
             {
                 currentTeam = team;
-                System.Console.WriteLine(currentTeam.Name);
-                System.Console.WriteLine(team.Name);
             }
         }
-        System.Console.WriteLine(currentTeam.Name);
     }
 }

@@ -30,12 +30,11 @@ namespace LionsDemo.Data
         public IEnumerable<Player> GetPlayerByName(string playerName)
         {
             var players = Fakes.PlayerCollection;
-            System.Console.WriteLine(playerName);
             var searchedPlayers = players.Where(p => p.LastName.Equals(playerName, StringComparison.CurrentCultureIgnoreCase) || p.FirstName.Equals(playerName, StringComparison.CurrentCultureIgnoreCase));
-            foreach (Player player in searchedPlayers)
-            {
-                System.Console.WriteLine(player.FirstName + " " + player.LastName);
-            }
+            //foreach (Player player in searchedPlayers)
+            //{
+            //    System.Console.WriteLine(player.FirstName + " " + player.LastName);
+            //}
             return searchedPlayers;
         }
 
@@ -43,10 +42,10 @@ namespace LionsDemo.Data
         public IEnumerable<Team> GetTeams()
         {
             var teams = Fakes.TeamCollection;
-            foreach (Team team in teams)
-            {
-                System.Console.WriteLine(team.Name);
-            }
+            //foreach (Team team in teams)
+            //{
+            //    System.Console.WriteLine(team.Name);
+            //}
             return teams.OrderBy(team => team.Name);
         }
 
@@ -54,7 +53,7 @@ namespace LionsDemo.Data
         {
             var players = Fakes.PlayerCollection;
             var selectedPlayer = players.FirstOrDefault(p => p.PlayerId == playerId);
-            System.Console.WriteLine(playerId);
+            //System.Console.WriteLine(playerId);
             return selectedPlayer;
         }
     }
