@@ -9,7 +9,6 @@ namespace LionsDemo.Data
             new Player {PlayerId = 1, TeamId = 3, FirstName = "Marcus", LastName = "Robinson", Position = "WR", Deleted = true},
             new Player {PlayerId = 2, TeamId = 3, FirstName = "John", LastName = "Tait", Position = "OT", Deleted = true},
             new Player {PlayerId = 3, TeamId = 3, FirstName = "Alex", LastName = "Brown", Position = "DE", Deleted = true},
-            new Player {PlayerId = 4, TeamId = 3, FirstName = "Charles", LastName = "Tillman", Position = "DC", Deleted = true},            
             new Player {PlayerId = 6, TeamId = 3, FirstName = "Devin", LastName = "Hester", Position = "WR", Deleted = true},
             new Player {PlayerId = 7, TeamId = 3, FirstName = "Manuel", LastName = "Ramirez", Position = "OG", Deleted = true},
             new Player {PlayerId = 8, TeamId = 3, FirstName = "Sedrick", LastName = "Ellis", Position = "DT", Deleted = true},
@@ -22,7 +21,7 @@ namespace LionsDemo.Data
             new Player {PlayerId = 15, TeamId = 3, FirstName = "Michael", LastName = "Pennel", Position = "DT", Deleted = false},
             new Player {PlayerId = 16, TeamId = 3, FirstName = "Cairo", LastName = "Santos", Position = "K", Deleted = false},
             new Player {PlayerId = 17, TeamId = 3, FirstName = "Michael", LastName = "Schofield", Position = "OG", Deleted = false},
-            new Player {PlayerId = 18, TeamId = 3, FirstName = "Joe", LastName = "Thomas", Position = "LB", Deleted = false},
+            new Player {PlayerId = 18, TeamId = 3, FirstName = "Joe", LastName = "thomas", Position = "LB", Deleted = false},
             new Player {PlayerId = 19, TeamId = 3, FirstName = "Angelo", LastName = "Blackson", Position = "DE", Deleted = false},
             new Player {PlayerId = 20, TeamId = 3, FirstName = "Chad", LastName = "Hamilton", Position = "OC", Deleted = true},
             new Player {PlayerId = 21, TeamId = 3, FirstName = "James", LastName = "OShaughnessy", Position = "TE", Deleted = false},
@@ -419,8 +418,8 @@ namespace LionsDemo.Data
         {
             new Team(3,"Bears","CHI","Chicago","Soldier Field"),
             new Team(8,"Lions","DET","Detroit","Ford Field"),
-            new Team(9,"Packers","GB","Green Bay","Lambeau Field"),
             new Team(16,"Vikings","MIN","Minnesota","U.S. Bank Stadium"),
+            new Team(9,"Packers","GB","Green Bay","Lambeau Field"),
         };
     }
 }

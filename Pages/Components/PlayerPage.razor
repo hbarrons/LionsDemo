@@ -1,5 +1,5 @@
 ﻿@page "/Player"
-@inject ILogger<Object> logger
+
 
 @using LionsDemo.Data
 @using LionsDemo.Models
@@ -18,7 +18,9 @@
                 </DropdownToggle>
                 <DropdownMenu MaxMenuHeight="500px">
                     @foreach (var p in allPlayers)
-                    {
+                        {
+                            // update so that selected player returns GetPlayerByName
+                            //Clicked="() => GetPlayerByName(@($"{selectedPlayer.FirstName} {selectedPlayer.LastName}"))
                         <DropdownItem Clicked="() => { selectedPlayer = p; }">@($"{p.LastName}, {p.FirstName}")</DropdownItem>
                         <DropdownDivider />
                     }
@@ -37,7 +39,7 @@
             <img Class="player-photo center" src="https://i.imgur.com/LBQBqvP.png" alt="Player Headshot">
             <CardBody>
                 <CardTitle Size="5" Class="text-center">Jared Goff</CardTitle>
-                <CardText  Class="text-center">
+                <CardText Class="text-center">
                     QB #16
                 </CardText>
             </CardBody>
@@ -60,6 +62,7 @@
         </Card>
     </div>
     <div class="table-responsive">
+        <h3 class="center">Player Statistics</h3>
         <table class="table table-striped caption-top">
             <caption>2021 Stats</caption>
             <tr class="table-light">
@@ -84,17 +87,33 @@
             </tr>
         </table>
     </div>
+    <button @onclick="getPlayerByName" class="btn btn-primary">Get Player By Name</button>
+    <button @onclick="getTeams" class="btn btn-primary">Get Teams</button>
 </div>
 
 @code {
     IEnumerable<Player> allPlayers = new List<Player>();
     Player selectedPlayer = new();
+    IEnumerable<Player> searchedPlayers = new List<Player>();
+    IEnumerable<Team> allTeams = new List<Team>();
+
 
     protected override void OnInitialized()
     {
         allPlayers = dataService.GetPlayers();
-        @*logger.LogInformation(allPlayers);*@
         base.OnInitialized();
     }
+
+    private void getPlayerByName()
+    {
+        searchedPlayers = dataService.GetPlayerByName(selectedPlayer.LastName);
+    }
+
+    private void getTeams()
+    {
+        allTeams = dataService.GetTeams();
+    }
+
+
 
 }
